@@ -1,6 +1,7 @@
 import {Component, effect} from '@angular/core';
 import {HangmanService} from 'src/app/services/hangman.service';
 
+
 @Component({
   selector: 'app-hangman-try',
   templateUrl: './hangman-try.component.html',
@@ -12,6 +13,7 @@ export class HangmanTryComponent {
   disabledNewGame = true;
 
   constructor(private hangmanService: HangmanService) {
+    /*branche une variable sur les un ou plusieurs signal pour synchroniser le valeurs*/
     effect(() => {
       this.triedLetters = this.hangmanService.triedLetters();
       this.disabledNewGame = this.hangmanService.isPlaying();
