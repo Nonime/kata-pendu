@@ -1,0 +1,3 @@
+<button (click)="onLetterClick($event)" *ngForOf="let letter of gameLetters" [disabled]="triedLetters.includes(letter)"
+        class="letter">{{letter}}</button>
+<button (click)="onNewGameClick()" [disabled]="disabledNewGame" class="new-game">NEW GAME</button>
