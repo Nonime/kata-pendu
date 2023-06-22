@@ -8,7 +8,7 @@ describe('HangmanService', () => {
   let service: HangmanService;
   const mockRandomWord: RandomWordGeneratorService = {
     words: [],
-    getRandomWord(): string {
+    getRandomWord: () => {
       return mockWord;
     }
   };
