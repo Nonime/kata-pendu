@@ -1,3 +1,4 @@
-<button (click)="onLetterClick($event)" *ngForOf="let letter of gameLetters" [disabled]="triedLetters.includes(letter)"
+<!--FIXME passage avec ng for of plante les tests problème avec le browser module-->
+<button (click)="onLetterClick($event)" *ngFor="let letter of gameLetters" [disabled]="triedLetters.includes(letter)"
         class="letter">{{letter}}</button>
 <button (click)="onNewGameClick()" [disabled]="disabledNewGame" class="new-game">NEW GAME</button>
