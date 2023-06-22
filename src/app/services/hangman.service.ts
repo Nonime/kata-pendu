@@ -1,4 +1,4 @@
-import {Injectable, signal, WritableSignal} from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 import {RandomWordGeneratorService} from './random-word-generator.service';
 
 @Injectable({

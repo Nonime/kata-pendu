@@ -3,27 +3,16 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HangmanTryComponent} from './hangman-try.component';
 import {HangmanService} from '../../services/hangman.service';
 import {By} from '@angular/platform-browser';
-import {signal} from '@angular/core';
+import {hangmanServiceMock} from '../../mocks/hangman-service.mock';
 
 describe('HangmanTryComponent', () => {
   let component: HangmanTryComponent;
   let fixture: ComponentFixture<HangmanTryComponent>;
-  let mockHangmanService = {
-    triedLetters: signal<string[]>([]),
-    failedTries: signal(0),
-    wordToFind: '',
-    wordMasked: signal(''),
-    isPlaying: signal(false),
-    tryLetter: () => {
-    },
-    newGame: () => {
-    }
-  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [HangmanTryComponent],
-      providers: [{provide: HangmanService, useValue: mockHangmanService}]
+      providers: [{provide: HangmanService, useValue: hangmanServiceMock}]
     });
     fixture = TestBed.createComponent(HangmanTryComponent);
     component = fixture.componentInstance;
@@ -47,13 +36,13 @@ describe('HangmanTryComponent', () => {
   });
 
   it('appel le hangman service sur le click ', () => {
-    const spy = spyOn(mockHangmanService, 'newGame');
+    const spy = spyOn(hangmanServiceMock, 'newGame');
     component.onNewGameClick();
     expect(spy).toHaveBeenCalled();
   });
 
   it(`appel le hangman service sur a l'appel de la fonction onLetterClick`, () => {
-    const spyFonctionDuService = spyOn(mockHangmanService, 'tryLetter');
+    const spyFonctionDuService = spyOn(hangmanServiceMock, 'tryLetter');
     const mockEvent: Event = <Event><any>{
       target: {
         textContent: 'T'
@@ -64,7 +53,7 @@ describe('HangmanTryComponent', () => {
   });
 
   it(`decoupe le tableau en enssemble de lettre`, () => {
-    const spyFonctionDuService = spyOn(mockHangmanService, 'tryLetter');
+    const spyFonctionDuService = spyOn(hangmanServiceMock, 'tryLetter');
     const mockEvent: Event = <Event><any>{
       target: {
         textContent: 'T'
