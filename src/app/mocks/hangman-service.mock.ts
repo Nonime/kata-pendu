@@ -7,7 +7,9 @@ export const hangmanServiceMock = {
   wordMasked: signal('T_T_'),
   isPlaying: signal(false),
   tryLetter: () => {
+    console.log("call mock ahangmanservice try letter");
   },
   newGame: () => {
+    console.log("call mock ahangmanservice newGame");
   }
 };

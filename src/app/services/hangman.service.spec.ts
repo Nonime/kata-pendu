@@ -43,8 +43,7 @@ describe('HangmanService', () => {
     });
     it(`qui fonctionne impact le mask`, () => {
       service.tryLetter('T');
-      let wordMasked = service.wordMasked();
-      expect(wordMasked).toEqual('T_T_');
+      expect(service.wordMasked()).toEqual('T_T_');
     });
 
     it(`et trouve le mot complet fini la partie`, () => {
@@ -56,11 +55,9 @@ describe('HangmanService', () => {
 
     it(`qui fonctionne impact le mask et gagne si le mask est complete`, () => {
       service.tryLetter('T');
-      let wordMaskedTT = service.wordMasked();
-      expect(wordMaskedTT).toEqual('T_T_');
+      expect(service.wordMasked()).toEqual('T_T_');
       service.tryLetter('O');
-      let wordMaskedTOTO = service.wordMasked();
-      expect(wordMaskedTOTO).toEqual('TOTO');
+      expect(service.wordMasked()).toEqual('TOTO');
     });
 
   });

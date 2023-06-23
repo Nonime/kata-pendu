@@ -43,7 +43,7 @@ describe('HangmanTryComponent', () => {
 
   it(`appel le hangman service sur a l'appel de la fonction onLetterClick`, () => {
     const spyFonctionDuService = spyOn(hangmanServiceMock, 'tryLetter');
-    const mockEvent: Event = <Event><any>{
+    const mockEvent: Event = <Event><{target: {textContent: string}}>{
       target: {
         textContent: 'T'
       }
@@ -54,7 +54,7 @@ describe('HangmanTryComponent', () => {
 
   it(`decoupe le tableau en enssemble de lettre`, () => {
     const spyFonctionDuService = spyOn(hangmanServiceMock, 'tryLetter');
-    const mockEvent: Event = <Event><any>{
+    const mockEvent: Event = <Event><{target: {textContent: string}}>{
       target: {
         textContent: 'T'
       }
